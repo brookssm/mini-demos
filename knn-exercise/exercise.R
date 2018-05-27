@@ -3,7 +3,7 @@ library(class) #Has the knn function
 
 #loading data
 data("iris")
-
+View(iris)
 #Set the seed for reproducibility
 set.seed(4948493) 
 
@@ -22,7 +22,7 @@ accuracy = function(actual, predicted) {
 pred <- knn(train = scale(ir_train[,-5]), 
            test = scale(ir_test[,-5]), 
            cl = ir_train$Species, 
-           k = 40)
+           k = 6)
 
 accuracy(ir_test$Species, pred)
 

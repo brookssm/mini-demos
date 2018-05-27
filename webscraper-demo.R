@@ -6,7 +6,7 @@
 
 
 ## Uncomment this to install packages
-#install.packages('rvest')
+install.packages('rvest')
 
 # Load in 'rvest' package
 library('rvest')
@@ -27,19 +27,21 @@ rank_data<-as.numeric(rank_data)
 head(rank_data)
 
 #Using CSS selectors to scrape the title section
-
+title_data_html <- html_nodes(webpage, '.lister-item-header a')
+title
 #html to text 
-
+title_data <- html_text(title_data_html)
 #look at data
-
+head(title_data)
 #Using CSS selectors to scrape the description section
-
+description_data_html <- html_nodes(webpage, '.ratings-bar+ .text-muted')
 #Converting the description data to text
-
+description_data <- html_text(description_data_html)
 #look at data
-
+head(description_data)
 #Data-Preprocessing: removing '\n'
-
+description_data <- gsub("\n", "", description_data)
+head(description_data)
 #Using CSS selectors to scrap the Movie runtime section
 
 #Converting the movie runtime data to text
